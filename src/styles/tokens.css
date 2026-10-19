@@ -1,0 +1,88 @@
+/* =========================================================================
+   Tokens: warm bone ground, warm ink, one red. Headings are a serif pair
+   (Newsreader for latin, Noto Serif SC for the CJK subset).
+   ========================================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* ground: warm bone, dark used only as a contrast block */
+  --bg: #f0eeeb;
+  --surface: #e4dfd8;
+  --deep: #1b1713;
+  --paper: #f8f8f6;
+
+  /* ink */
+  --ink: #1b1713;
+  --ink-on-paper: #1b1713;
+  --muted: #54493f;
+
+  /* accent */
+  --accent: #c8102e;
+  --accent-ink: #f8f8f6;
+  --accent-soft: #a20c24;
+
+  /* on the one dark block */
+  --on-deep: #f8f8f6;
+  --on-deep-muted: #b3a698;
+
+  /* second highlight colour, cold on purpose: it is the one clash */
+  --clash: #1d3fb8;
+
+  /* type ------------------------------------------------------------- */
+  --font-display: "Newsreader", "Noto Serif SC", Georgia, "Songti SC",
+    "SimSun", serif;
+  --font-text: system-ui, -apple-system, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+
+  --step-small: clamp(1rem, 0.9rem + 0.12vw, 1rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.28vw, 1.1875rem);
+  --step-lead: clamp(1.3125rem, 1.12rem + 0.8vw, 1.875rem);
+  --step-head: clamp(2rem, 1.25rem + 3.4vw, 4.25rem);
+  --step-hero: clamp(3rem, 9.2vw, 9.5rem);
+
+  /* space ------------------------------------------------------------ */
+  --margin: clamp(1.25rem, 3.4vw, 3.5rem);
+  --gutter: clamp(1rem, 2vw, 2rem);
+  --section: clamp(5rem, 11vh, 9rem);
+  --radius: 2px;
+
+  /* motion ----------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+
+  --t-press: 140ms;
+  --t-hover: 180ms;
+  --t-ui: 240ms;
+  --t-reveal: 640ms;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --step-hero: clamp(2.4rem, 12vw, 5.4rem);
+    --step-head: clamp(1.75rem, 7.4vw, 2.75rem);
+    --section: clamp(3.5rem, 9vh, 5.5rem);
+  }
+}
+
+/* latin display face, self-hosted, subset to latin */
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/newsreader-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* CJK display face, self-hosted, subset to the 617 hanzi this site uses */
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/noto-serif-sc-700-cjk.woff2") format("woff2");
+}

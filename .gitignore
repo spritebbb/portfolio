@@ -1,0 +1,6 @@
+node_modules/
+.taste-skill/
+.research/
+/assets/
+*.bak-*
+.DS_Store
