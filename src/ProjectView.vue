@@ -75,7 +75,7 @@
             <span class="pv-metric-l">{{ m.label }}</span>
           </div>
         </div>
-        <div class="pv-shot-foot">
+        <div v-if="!project.shots" class="pv-shot-foot">
           <p class="pv-shot-t">
             {{ project.textOnly ? '这个项目没有截图' : '界面截图待补' }}
           </p>
