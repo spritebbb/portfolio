@@ -3,9 +3,8 @@
     <SiteHero />
     <main>
       <WorkIndex />
-      <MemoryBand />
+      <ProjectGrid />
       <ProofTable />
-      <MemoryDemo />
       <AboutCopy />
     </main>
     <SiteContact />
@@ -17,9 +16,8 @@
 import { onMounted } from 'vue'
 import SiteHero from './components/SiteHero.vue'
 import WorkIndex from './components/WorkIndex.vue'
+import ProjectGrid from './components/ProjectGrid.vue'
 import ProofTable from './components/ProofTable.vue'
-import MemoryDemo from './components/MemoryDemo.vue'
-import MemoryBand from './components/MemoryBand.vue'
 import AboutCopy from './components/AboutCopy.vue'
 import SiteContact from './components/SiteContact.vue'
 import SiteFooter from './components/SiteFooter.vue'
