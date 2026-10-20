@@ -3,6 +3,9 @@ import demoPoster from '../assets/media/jd-pipeline-poster.jpg'
 import cstudyGraph from '../assets/media/cstudy-graph.png'
 import cstudyNotes from '../assets/media/cstudy-notes.png'
 import cstudySyllabus from '../assets/media/cstudy-syllabus.png'
+import tuzhanMain from '../assets/media/tuzhan-assistant-main.jpg'
+import tuzhanSettings from '../assets/media/tuzhan-assistant-settings.jpg'
+import tuzhanGrowth from '../assets/media/tuzhan-assistant-growth.jpg'
 
 export interface Metric {
   value: string
@@ -33,6 +36,7 @@ export interface Project {
   textOnly?: boolean
   /** Optional real screenshots (first one doubles as the card cover). */
   shots?: string[]
+  shotsCaption?: string
   /** Optional demo video and its poster frame. */
   video?: string
   poster?: string
@@ -51,6 +55,10 @@ export const projects: Project[] = [
     repo: 'https://github.com/spritebbb/TZtuzhanAssistant',
     tableResult: '长期记忆与人格系统',
     tableNumber: '432 提交 · 193 项测试',
+    poster: tuzhanMain,
+    shots: [tuzhanMain, tuzhanSettings, tuzhanGrowth],
+    shotsCaption:
+      '上面是它现在的界面，从左边起：主聊天页、设置里的数据保护与模型配置、成长总览。',
     stack: ['Python', 'FastAPI', 'Vue 3', 'SQLite', 'SSE', 'MCP'],
     metrics: [
       { value: '432', label: '次提交' },
@@ -192,6 +200,7 @@ export const projects: Project[] = [
     tableNumber: '64 个知识点 · 7 题/节',
     poster: cstudyGraph,
     shots: [cstudyGraph, cstudySyllabus, cstudyNotes],
+    shotsCaption: '上面是它现在的界面，从左边起：知识图谱、考纲覆盖、笔记。',
     stack: ['Python', 'PyQt6', 'SQLite', 'whisper', 'LLM'],
     metrics: [
       { value: '64', label: '个考纲知识点' },

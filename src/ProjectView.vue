@@ -64,7 +64,7 @@
           decoding="async"
         />
         <figcaption class="pv-shots-c">
-          上面是它现在的界面，从左边起：知识图谱、考纲覆盖、笔记。
+          {{ project.shotsCaption }}
         </figcaption>
       </figure>
 
