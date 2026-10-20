@@ -95,6 +95,146 @@ export const projects: Project[] = [
       'v3.5 做完一轮全量排查，103 个问题清到零：P0 一个、P1 十三个、P2 二十一个、P3 六十八个。教训是 AI 产品的 bug 大多不在报错里，在「它记得，但记错了」。',
   },
   {
+    slug: 'jd-pipeline',
+    name: '管理系统产线',
+    en: 'Spring Boot Pipeline',
+    tagline: '把「给客户做一套后台系统」这件事，做成一条流水线。',
+    period: '2026.09',
+    year: '2026',
+    repo: 'https://github.com/spritebbb/jd-pipeline',
+    tableResult: '企业后台生成与交付',
+    tableNumber: '30 个脚本 · 五道验收门',
+    video: demoVideo,
+    poster: demoPoster,
+    stack: ['Java 21', 'Spring Boot 3.5', 'MyBatis-Plus', 'MySQL', 'Vue 3', 'Element Plus'],
+    metrics: [
+      { value: '30', label: '个产线脚本' },
+      { value: '5', label: '道真机验收门' },
+      { value: '8', label: '个文件一次生成' },
+      { value: '1', label: '条命令打包交付' },
+    ],
+    body: [
+      {
+        heading: '给一家公司做一个系统不难，难的是做第二家',
+        paras: [
+          '每次重搭框架、重写登录、重画列表页、重配权限，第二次做出来的和第一次长得不一样，第一个项目修过的 bug 也不会自动进到下一个。',
+          '所以把所有项目共用的部分冻结成母版，把每个项目不同的部分变成参数和模块规格：新项目换四个参数，新功能模块写一份 JSON 规格。',
+        ],
+      },
+      {
+        heading: '一份 JSON 规格，长出前后端一整条链路',
+        paras: [
+          '模块生成器读一份规格，产出八个 Java 文件、建表脚本、前端接口文件、页面、路由和菜单项。生成是幂等的，重复跑不会写重，改动被标记块包住，重新生成时不会覆盖手写部分。',
+          '生成完脚本自己跑一次库表体检，缺表会报出来。体检脚本只读，遇到 DROP 语句直接拒绝执行：这是防手滑，不是防恶意，它解不了「误删生产库」以外的任何事。',
+        ],
+      },
+      {
+        heading: '五道门，全在真实浏览器里跑',
+        paras: [
+          '截图门、对比度门（WCAG 2.1，正文至少 4.5:1）、表格溢出量测、个人中心 18 项、头像上传 12 项。不用读代码猜，都是打开真实浏览器量出来的。',
+          '这五道门挡的是「能用代码证明的错误」。界面贴不贴主题、好不好用，机器判不了，仍然要人眼看截图。这两件事我分得很清楚。',
+        ],
+      },
+    ],
+    pitfall:
+      '生成器把母版的配置文件原样复制给了每个新项目，于是多个系统共用同一个 JWT 密钥。一个系统签发的 token 可以拿去签另一个系统。这是我自己写出来又自己发现的，正确的做法是生成时给每个项目随机生成密钥。目前它写在 README 的安全说明里，还没改。',
+  },  {
+    slug: 'cstudy',
+    name: 'C 语言备考助手',
+    en: 'Cstudy',
+    tagline: '把 B 站上的 C 语言课，变成一个会出题、会盯错题的私教。',
+    period: '2026.10',
+    year: '2026',
+    repo: 'https://github.com/spritebbb/Cstudy',
+    tableResult: '视频转题库',
+    tableNumber: '64 个知识点 · 7 题/节',
+    poster: cstudyGraph,
+    shots: [cstudyGraph, cstudySyllabus, cstudyNotes],
+    shotsCaption: '上面是它现在的界面，从左边起：知识图谱、考纲覆盖、笔记。',
+    stack: ['Python', 'PyQt6', 'SQLite', 'whisper', 'LLM'],
+    metrics: [
+      { value: '64', label: '个考纲知识点' },
+      { value: '7', label: '题每节课' },
+      { value: '6', label: '条验收标准' },
+      { value: '1', label: '次点击打包' },
+    ],
+    body: [
+      {
+        heading: '一条流水线：视频 → 笔记 → 题',
+        paras: [
+          '粘贴一个 B 站链接，后面全是自动的：抓字幕（没有 CC 就用本地 whisper 转写）、按十分钟切块逐块总结再合并、生成 Markdown 笔记、基于笔记出题、落库。',
+          '每节课固定出七道题：三道选择、两道填空、一道阅读、一道编程，每题带答案和解析。刷题界面可以按题型、章节、来源挑，也可以按考试分值比例组一套真题。',
+        ],
+      },
+      {
+        heading: '字幕里没有代码，所以去看屏幕',
+        paras: [
+          '老师讲「这里我们写一个循环」的时候，循环本身在屏幕上，不在字幕里。只靠字幕生成的笔记，满篇都是这种指代不明的句子。',
+          '加了一步关键帧读屏：定时截取视频画面，把屏幕上的代码和 PPT 读进笔记。代码块终于出现在该出现的位置。',
+        ],
+      },
+      {
+        heading: '一张图，看得见自己哪块没学会',
+        paras: [
+          '图谱里圆圈大小是题量，颜色是我自己的正确率，连线是两个知识点之间的关系。所以在图上找「红的大圈」就成了找弱点：题目多、但我错得多的地方。',
+          '连线不是自动长出来的，每一条都过了人手（为什么非得这样，前面那栏写了）。',
+        ],
+      },
+    ],
+    pitfall:
+      '第一版把出题和写笔记放在同一次模型调用里，结果题和笔记互相污染，笔记质量先垮了。拆成两步之后笔记稳住了题才跟着准，README 里那六条验收标准就是被这次返工逼出来的。',
+  },
+  {
+    slug: 'dsh-skill-usage',
+    name: 'DSH 技能中心插件',
+    en: 'dsh-skill-usage',
+    tagline: '给编辑器加一块面板，看这个会话到底用过哪些技能。',
+    period: '2026.09',
+    year: '2026',
+    repo: 'https://github.com/spritebbb/dsh-skill-usage',
+    tableResult: 'session projection',
+    tableNumber: '3 个版本 · 零额外落库',
+    textOnly: true,
+    stack: ['TypeScript', 'esbuild', 'session projection'],
+    metrics: [
+      { value: '3', label: '个版本' },
+      { value: '1', label: '个投影' },
+      { value: '0', label: '次额外落库' },
+      { value: '2', label: '端（host / client）' },
+    ],
+    panel: {
+      title: '一条记录，从日志流到面板',
+      rows: [
+        { k: '① 输入', v: 'session log 里的 skill 调用，以及用户 /name 的显式调用' },
+        { k: '② 折叠', v: 'skillUsage 投影，纯函数，重放多少次结果都一样' },
+        { k: '③ 传输', v: 'host 把投影值折进 list rows，不新开表、不落库' },
+        { k: '④ 渲染', v: 'client 用 useSessions 读，画在 sidebar.footer.action' },
+        { k: '⑤ 启用', v: '勾选技能后构造一条 /name 提示，让 host 注入全文' },
+      ],
+    },
+    repoNote:
+      '这个插件停在 v0.2.0：它要解决的问题后来官方有了更好的方案，所以不再单独维护。留下来的是当初那个判断，用 session projection 折出使用记录，而不是另存一张表。',
+    body: [
+      {
+        heading: '输入是会话日志，输出是面板要的那两个值',
+        paras: [
+          '一个 session projection：输入是会话日志，输出是「当前用过的技能」和「历史调用」。纯 fold，不写库、不发请求、不改会话。宿主在返回会话列表时把这个投影的值一起折进去，前端直接读。',
+          '所有代价都在这儿：每次读都要现算。所有收益也在这儿：没有第二份真相，也就没有「面板和日志对不上」这种 bug。',
+        ],
+      },
+      {
+        heading: '两半：宿主一个 fold，前端一个座位',
+        paras: [
+          '宿主侧只关心两种事件：模型调用 skill 工具，以及用户手输 /技能名 显式调用。两者都折叠成同一个结构。',
+          '前端侧通过全局的会话 seat 读投影值，渲染在侧边栏底部的动作带上。点开能看到已用技能和本会话可用的技能目录。',
+          '里面的「启用」不会改任何状态，它只构造一条装载指令，交给宿主去注入技能正文，这样插件的权限边界始终是只读的。',
+        ],
+      },
+    ],
+    pitfall:
+      'projection 听起来像 hook，其实它是纯函数。想清楚「我要的是派生结果还是副作用」，代码能少一半，这个插件最后只有两个文件。',
+  },
+  {
     slug: 'tuzhan-bot',
     name: '菟菚 QQ bot',
     en: 'TZtuzhan',
@@ -163,147 +303,6 @@ export const projects: Project[] = [
     ],
     pitfall:
       '第一版把所有上下文都往 prompt 里塞，token 炸了，答得还更差。改成意图路由加五元组检索之后，同样的问题 prompt 短了一个数量级，准确率反而上去了。',
-  },
-  {
-    slug: 'dsh-skill-usage',
-    name: 'DSH 技能中心插件',
-    en: 'dsh-skill-usage',
-    tagline: '给编辑器加一块面板，看这个会话到底用过哪些技能。',
-    period: '2026.09',
-    year: '2026',
-    repo: 'https://github.com/spritebbb/dsh-skill-usage',
-    tableResult: 'session projection',
-    tableNumber: '3 个版本 · 零额外落库',
-    textOnly: true,
-    stack: ['TypeScript', 'esbuild', 'session projection'],
-    metrics: [
-      { value: '3', label: '个版本' },
-      { value: '1', label: '个投影' },
-      { value: '0', label: '次额外落库' },
-      { value: '2', label: '端（host / client）' },
-    ],
-    panel: {
-      title: '一条记录，从日志流到面板',
-      rows: [
-        { k: '① 输入', v: 'session log 里的 skill 调用，以及用户 /name 的显式调用' },
-        { k: '② 折叠', v: 'skillUsage 投影，纯函数，重放多少次结果都一样' },
-        { k: '③ 传输', v: 'host 把投影值折进 list rows，不新开表、不落库' },
-        { k: '④ 渲染', v: 'client 用 useSessions 读，画在 sidebar.footer.action' },
-        { k: '⑤ 启用', v: '勾选技能后构造一条 /name 提示，让 host 注入全文' },
-      ],
-    },
-    repoNote:
-      '这个插件停在 v0.2.0：它要解决的问题后来官方有了更好的方案，所以不再单独维护。留下来的是当初那个判断，用 session projection 折出使用记录，而不是另存一张表。',
-    body: [
-      {
-        heading: '输入是会话日志，输出是面板要的那两个值',
-        paras: [
-          '一个 session projection：输入是会话日志，输出是「当前用过的技能」和「历史调用」。纯 fold，不写库、不发请求、不改会话。宿主在返回会话列表时把这个投影的值一起折进去，前端直接读。',
-          '所有代价都在这儿：每次读都要现算。所有收益也在这儿：没有第二份真相，也就没有「面板和日志对不上」这种 bug。',
-        ],
-      },
-      {
-        heading: '两半：宿主一个 fold，前端一个座位',
-        paras: [
-          '宿主侧只关心两种事件：模型调用 skill 工具，以及用户手输 /技能名 显式调用。两者都折叠成同一个结构。',
-          '前端侧通过全局的会话 seat 读投影值，渲染在侧边栏底部的动作带上。点开能看到已用技能和本会话可用的技能目录。',
-          '里面的「启用」不会改任何状态，它只构造一条装载指令，交给宿主去注入技能正文，这样插件的权限边界始终是只读的。',
-        ],
-      },
-    ],
-    pitfall:
-      'projection 听起来像 hook，其实它是纯函数。想清楚「我要的是派生结果还是副作用」，代码能少一半，这个插件最后只有两个文件。',
-  },
-  {
-    slug: 'cstudy',
-    name: 'C 语言备考助手',
-    en: 'Cstudy',
-    tagline: '把 B 站上的 C 语言课，变成一个会出题、会盯错题的私教。',
-    period: '2026.10',
-    year: '2026',
-    repo: 'https://github.com/spritebbb/Cstudy',
-    tableResult: '视频转题库',
-    tableNumber: '64 个知识点 · 7 题/节',
-    poster: cstudyGraph,
-    shots: [cstudyGraph, cstudySyllabus, cstudyNotes],
-    shotsCaption: '上面是它现在的界面，从左边起：知识图谱、考纲覆盖、笔记。',
-    stack: ['Python', 'PyQt6', 'SQLite', 'whisper', 'LLM'],
-    metrics: [
-      { value: '64', label: '个考纲知识点' },
-      { value: '7', label: '题每节课' },
-      { value: '6', label: '条验收标准' },
-      { value: '1', label: '次点击打包' },
-    ],
-    body: [
-      {
-        heading: '一条流水线：视频 → 笔记 → 题',
-        paras: [
-          '粘贴一个 B 站链接，后面全是自动的：抓字幕（没有 CC 就用本地 whisper 转写）、按十分钟切块逐块总结再合并、生成 Markdown 笔记、基于笔记出题、落库。',
-          '每节课固定出七道题：三道选择、两道填空、一道阅读、一道编程，每题带答案和解析。刷题界面可以按题型、章节、来源挑，也可以按考试分值比例组一套真题。',
-        ],
-      },
-      {
-        heading: '字幕里没有代码，所以去看屏幕',
-        paras: [
-          '老师讲「这里我们写一个循环」的时候，循环本身在屏幕上，不在字幕里。只靠字幕生成的笔记，满篇都是这种指代不明的句子。',
-          '加了一步关键帧读屏：定时截取视频画面，把屏幕上的代码和 PPT 读进笔记。代码块终于出现在该出现的位置。',
-        ],
-      },
-      {
-        heading: '一张图，看得见自己哪块没学会',
-        paras: [
-          '图谱里圆圈大小是题量，颜色是我自己的正确率，连线是两个知识点之间的关系。所以在图上找「红的大圈」就成了找弱点：题目多、但我错得多的地方。',
-          '连线不是自动长出来的，每一条都过了人手（为什么非得这样，前面那栏写了）。',
-        ],
-      },
-    ],
-    pitfall:
-      '第一版把出题和写笔记放在同一次模型调用里，结果题和笔记互相污染，笔记质量先垮了。拆成两步之后笔记稳住了题才跟着准，README 里那六条验收标准就是被这次返工逼出来的。',
-  },
-  {
-    slug: 'jd-pipeline',
-    name: '管理系统产线',
-    en: 'Spring Boot Pipeline',
-    tagline: '把「给客户做一套后台系统」这件事，做成一条流水线。',
-    period: '2026.09',
-    year: '2026',
-    repo: 'https://github.com/spritebbb/jd-pipeline',
-    tableResult: '企业后台生成与交付',
-    tableNumber: '30 个脚本 · 五道验收门',
-    video: demoVideo,
-    poster: demoPoster,
-    stack: ['Java 21', 'Spring Boot 3.5', 'MyBatis-Plus', 'MySQL', 'Vue 3', 'Element Plus'],
-    metrics: [
-      { value: '30', label: '个产线脚本' },
-      { value: '5', label: '道真机验收门' },
-      { value: '8', label: '个文件一次生成' },
-      { value: '1', label: '条命令打包交付' },
-    ],
-    body: [
-      {
-        heading: '给一家公司做一个系统不难，难的是做第二家',
-        paras: [
-          '每次重搭框架、重写登录、重画列表页、重配权限，第二次做出来的和第一次长得不一样，第一个项目修过的 bug 也不会自动进到下一个。',
-          '所以把所有项目共用的部分冻结成母版，把每个项目不同的部分变成参数和模块规格：新项目换四个参数，新功能模块写一份 JSON 规格。',
-        ],
-      },
-      {
-        heading: '一份 JSON 规格，长出前后端一整条链路',
-        paras: [
-          '模块生成器读一份规格，产出八个 Java 文件、建表脚本、前端接口文件、页面、路由和菜单项。生成是幂等的，重复跑不会写重，改动被标记块包住，重新生成时不会覆盖手写部分。',
-          '生成完脚本自己跑一次库表体检，缺表会报出来。体检脚本只读，遇到 DROP 语句直接拒绝执行：这是防手滑，不是防恶意，它解不了「误删生产库」以外的任何事。',
-        ],
-      },
-      {
-        heading: '五道门，全在真实浏览器里跑',
-        paras: [
-          '截图门、对比度门（WCAG 2.1，正文至少 4.5:1）、表格溢出量测、个人中心 18 项、头像上传 12 项。不用读代码猜，都是打开真实浏览器量出来的。',
-          '这五道门挡的是「能用代码证明的错误」。界面贴不贴主题、好不好用，机器判不了，仍然要人眼看截图。这两件事我分得很清楚。',
-        ],
-      },
-    ],
-    pitfall:
-      '生成器把母版的配置文件原样复制给了每个新项目，于是多个系统共用同一个 JWT 密钥。一个系统签发的 token 可以拿去签另一个系统。这是我自己写出来又自己发现的，正确的做法是生成时给每个项目随机生成密钥。目前它写在 README 的安全说明里，还没改。',
   },
 ]
 

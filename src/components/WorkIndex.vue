@@ -8,9 +8,9 @@
               v-if="i < projects.length - 1"
               class="work-sep"
               >，</span
+              ><span v-else class="work-end">。</span
             ></a
-          ></template
-        ><span class="work-end">。</span>
+          ></template>
       </nav>
 
       <p class="small work-meta">
