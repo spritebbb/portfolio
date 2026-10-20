@@ -1,5 +1,8 @@
 import demoVideo from '../assets/media/jd-pipeline-demo.mp4'
 import demoPoster from '../assets/media/jd-pipeline-poster.jpg'
+import cstudyGraph from '../assets/media/cstudy-graph.png'
+import cstudyNotes from '../assets/media/cstudy-notes.png'
+import cstudySyllabus from '../assets/media/cstudy-syllabus.png'
 
 export interface Metric {
   value: string
@@ -28,6 +31,8 @@ export interface Project {
   pitfall: string
   /** No screenshot: the card shows a text panel instead. */
   textOnly?: boolean
+  /** Optional real screenshots (first one doubles as the card cover). */
+  shots?: string[]
   /** Optional demo video and its poster frame. */
   video?: string
   poster?: string
@@ -185,6 +190,8 @@ export const projects: Project[] = [
     repo: 'https://github.com/spritebbb/Cstudy',
     tableResult: '视频转题库',
     tableNumber: '64 个知识点 · 7 题/节',
+    poster: cstudyGraph,
+    shots: [cstudyGraph, cstudySyllabus, cstudyNotes],
     stack: ['Python', 'PyQt6', 'SQLite', 'whisper', 'LLM'],
     metrics: [
       { value: '64', label: '个考纲知识点' },

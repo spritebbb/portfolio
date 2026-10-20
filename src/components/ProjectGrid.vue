@@ -11,9 +11,9 @@
           <a class="card-link" :href="`./${p.slug}/`">
             <div class="card-shot" data-ui>
               <img
-                v-if="p.poster"
+                v-if="p.poster || p.shots"
                 class="card-shot-img"
-                :src="p.poster"
+                :src="p.poster || p.shots?.[0]"
                 :alt="`${p.name} 的界面截图`"
                 loading="eager"
                 decoding="async"

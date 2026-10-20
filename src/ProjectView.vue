@@ -53,6 +53,21 @@
         </figcaption>
       </figure>
 
+      <figure v-if="project.shots" class="pv-shots" data-reveal>
+        <img
+          v-for="(shot, i) in project.shots"
+          :key="shot"
+          class="pv-shots-i"
+          :src="shot"
+          :alt="`${project.name} 的界面截图 ${i + 1}`"
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption class="pv-shots-c">
+          上面是它现在的界面，从左边起：知识图谱、考纲覆盖、笔记。
+        </figcaption>
+      </figure>
+
       <div class="pv-shot" data-ui data-reveal>
         <div class="pv-metrics">
           <div v-for="m in project.metrics" :key="m.label" class="pv-metric">
@@ -317,6 +332,28 @@ onMounted(() => {
 
 .pv-reel-c {
   margin-top: 0.9rem;
+  font-size: var(--step-small);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+.pv-shots {
+  margin: clamp(2.5rem, 6vh, 4rem) 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.8vw, 1.4rem);
+}
+
+.pv-shots-i {
+  width: 100%;
+  display: block;
+  background: var(--deep);
+}
+
+.pv-shots-c {
+  grid-column: 1 / -1;
+  margin-top: 0.4rem;
   font-size: var(--step-small);
   line-height: 1.6;
   color: var(--muted);
