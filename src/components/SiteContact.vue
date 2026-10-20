@@ -17,7 +17,7 @@
         <span class="crow-text">github.com/spritebbb</span>
       </a>
       <div class="crow" data-reveal>
-        <span class="crow-text">湖北 · 襄阳</span>
+        <span class="crow-text">河南 · 信阳</span>
       </div>
     </div>
 

@@ -2,7 +2,7 @@
   <section class="about section">
     <div class="wrap">
       <p class="about-copy" data-reveal>
-        <span class="about-ink">我是黄泽圣</span>，湖北襄阳人，襄阳职业技术大学人工智能技术应用，2027
+        <span class="about-ink">我是黄泽圣</span>，河南信阳人，襄阳职业技术大学人工智能技术应用，2027
         年毕业。简历上写的是 Python 后端和 AI 应用开发，实际上做过的东西比简历上的宽一些：<span
           class="hl hl-a">五个项目</span
         >，没有一个是我能熟练之后再做的，都是边查边写。两个是同一个「菟菚」的两种形态，一个装在桌面上，一个待在
@@ -15,7 +15,7 @@
           class="hl hl-a">数据库</span
         >里。
         <a class="about-last" href="#contact"
-          ><span class="hl hl-a">如果你也在做类似的东西，下面能找到我。</span></a
+          ><span class="hl hl-a">2027 年毕业，找 AI 应用开发或 Python 后端的实习。下面能找到我。</span></a
         >
       </p>
     </div>
