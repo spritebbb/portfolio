@@ -18,6 +18,14 @@
                 loading="eager"
                 decoding="async"
               />
+              <template v-else-if="p.textOnly">
+                <span class="card-shot-name">{{ p.name }}</span>
+                <span class="card-shot-nums">
+                  <span v-for="m in p.metrics.slice(0, 3)" :key="m.label">
+                    <b>{{ m.value }}</b>{{ m.label }}
+                  </span>
+                </span>
+              </template>
               <template v-else>
                 <span class="card-shot-name">{{ p.name }}</span>
                 <span class="card-shot-note">界面截图待补</span>
@@ -91,6 +99,22 @@ import { projects } from '../data/projects'
   justify-content: space-between;
   padding: clamp(1rem, 2vw, 1.6rem);
   color: var(--ink);
+}
+
+.card-shot-nums {
+  display: flex;
+  gap: 1.4rem;
+  font-size: var(--step-small);
+  color: var(--muted);
+}
+
+.card-shot-nums b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: var(--accent);
 }
 
 .card-shot-img {

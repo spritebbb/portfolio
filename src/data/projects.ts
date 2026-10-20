@@ -26,6 +26,8 @@ export interface Project {
   metrics: Metric[]
   body: Block[]
   pitfall: string
+  /** No screenshot: the card shows a text panel instead. */
+  textOnly?: boolean
   /** Optional demo video and its poster frame. */
   video?: string
   poster?: string
@@ -88,6 +90,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/spritebbb/TZtuzhan',
     tableResult: '结构化事实记忆',
     tableNumber: '140 提交 · 195 项测试',
+    textOnly: true,
     stack: ['Python', 'NoneBot2', 'SQLite', 'RAG', 'LLM 工具调用'],
     metrics: [
       { value: '195', label: '项 pytest' },
@@ -142,6 +145,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/spritebbb/dsh-skill-usage',
     tableResult: 'session projection',
     tableNumber: '3 个版本 · 零额外落库',
+    textOnly: true,
     stack: ['TypeScript', 'esbuild', 'session projection'],
     metrics: [
       { value: '3', label: '个版本' },
