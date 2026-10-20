@@ -75,7 +75,7 @@
             <span class="pv-metric-l">{{ m.label }}</span>
           </div>
         </div>
-        <div v-if="!project.shots" class="pv-shot-foot">
+        <div v-if="!project.shots || project.panel" class="pv-shot-foot">
           <template v-if="project.panel">
             <p class="pv-shot-t">{{ project.panel.title }}</p>
             <dl class="pv-panel">
@@ -128,37 +128,6 @@
       </article>
     </main>
 
-    <figure class="pv-band">
-      <img
-        :src="picFront"
-        width="1600"
-        height="1200"
-        alt="一张手写的索引卡，上面记着日期、编号和随手画的图"
-        loading="eager"
-        decoding="async"
-      />
-      <img
-        :src="picBox"
-        width="1600"
-        height="901"
-        alt="一个打开的纸盒，里面是手写的考古索引卡，卡片顶端有字母分类标签"
-        loading="eager"
-        decoding="async"
-      />
-      <img
-        :src="picDrawers"
-        width="1600"
-        height="1200"
-        alt="图书馆里成排的木质卡片目录柜，抽屉前有金属把手"
-        loading="eager"
-        decoding="async"
-      />
-      <figcaption>
-        这些不是 {{ project.name }} 的截图，是「把一件事存成一条可查的记录」的历史做法：一张卡记一条，按字段建索引。
-        截图的位置还空着，等真图放进来。
-      </figcaption>
-    </figure>
-
     <nav class="pv-next">
       <a class="pv-next-a" :href="`../${next.slug}/`">
         <span class="pv-next-k">下一个</span>
@@ -173,9 +142,6 @@ import { computed, onMounted } from 'vue'
 import type { Project } from './data/projects'
 import { decisions } from './data/decisions'
 import { initReveal } from './lib/reveal'
-import picFront from './assets/photos/the-first-card-written-west-of-cambridge.jpg'
-import picBox from './assets/photos/emilie-haspels-index-card-file-wp-20170131.jpg'
-import picDrawers from './assets/photos/manchester-central-library-march-2010-4467481691.jpg'
 
 const props = defineProps<{ project: Project; next: Project }>()
 const decision = computed(() => decisions[props.project.slug])
@@ -198,34 +164,6 @@ onMounted(() => {
 .pv-actions-note {
   font-size: var(--step-small);
   color: var(--muted);
-}
-
-.pv-band {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--gutter);
-  padding: var(--section) var(--margin) 0;
-}
-
-.pv-band img {
-  width: 100%;
-  filter: grayscale(1) sepia(0.3) contrast(1.06) brightness(1.03);
-}
-
-.pv-band figcaption {
-  grid-column: 1 / -1;
-  margin-top: 0.9rem;
-  font-size: var(--step-small);
-  line-height: 1.6;
-  color: var(--muted);
-  max-width: 62ch;
-}
-
-@media (max-width: 900px) {
-  .pv-band {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
 }
 
 .pv {
@@ -388,8 +326,9 @@ onMounted(() => {
 .pv-shots {
   margin: clamp(2.5rem, 6vh, 4rem) 0 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(0.8rem, 1.8vw, 1.4rem);
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  max-width: 900px;
 }
 
 .pv-shots-i {

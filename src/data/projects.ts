@@ -1,5 +1,14 @@
 import demoVideo from '../assets/media/jd-pipeline-demo.mp4'
 import demoPoster from '../assets/media/jd-pipeline-poster.jpg'
+import botDiagramFlow from '../assets/media/bot-diagram-flow.jpg'
+import botDiagramTuple from '../assets/media/bot-diagram-tuple.jpg'
+import botDiagramModules from '../assets/media/bot-diagram-modules.jpg'
+import dshDiagramFlow from '../assets/media/dsh-diagram-flow.jpg'
+import dshDiagramShape from '../assets/media/dsh-diagram-shape.jpg'
+import dshDiagramSides from '../assets/media/dsh-diagram-sides.jpg'
+import jdDiagramSteps from '../assets/media/jd-diagram-steps.jpg'
+import jdDiagramSpec from '../assets/media/jd-diagram-spec.jpg'
+import jdDiagramGates from '../assets/media/jd-diagram-gates.jpg'
 import cstudyGraph from '../assets/media/cstudy-graph.png'
 import cstudyNotes from '../assets/media/cstudy-notes.png'
 import cstudySyllabus from '../assets/media/cstudy-syllabus.png'
@@ -106,6 +115,9 @@ export const projects: Project[] = [
     tableNumber: '30 个脚本 · 五道验收门',
     video: demoVideo,
     poster: demoPoster,
+    shots: [jdDiagramSteps, jdDiagramSpec, jdDiagramGates],
+    shotsCaption:
+      '上面三张不是界面截图，是这条产线自己的图纸：五步怎么串、一份规格长出什么、五道门各查什么。系统跑起来的样子在更上面的视频里。',
     panel: {
       title: '一条流水线，五步把系统交出去',
       rows: [
@@ -212,6 +224,9 @@ export const projects: Project[] = [
       { value: '0', label: '次额外落库' },
       { value: '2', label: '端（host / client）' },
     ],
+    shots: [dshDiagramFlow, dshDiagramShape, dshDiagramSides],
+    shotsCaption:
+      '上面三张是它自己的图纸，不是界面截图：数据怎么流、投影长什么样、两端各做什么。',
     panel: {
       title: '一条记录，从日志流到面板',
       rows: [
@@ -262,6 +277,9 @@ export const projects: Project[] = [
       { value: '7', label: '个版本' },
       { value: '30+', label: '个功能模块' },
     ],
+    shots: [botDiagramFlow, botDiagramTuple, botDiagramModules],
+    shotsCaption:
+      '上面三张是它自己的图纸，不是界面截图：一条消息怎么被分流、一句话怎么拆成五个字段、三十个模块怎么分组。',
     panel: {
       title: '三十个模块，一个管一件事',
       rows: [
