@@ -211,8 +211,10 @@ p {
   .lines .line {
     display: block;
     overflow: hidden;
-    padding-bottom: 0.06em;
-    margin-bottom: -0.06em;
+    /* CJK glyphs in a serif face reach past the em box on all four sides,
+       so the mask needs padding everywhere or the strokes get shaved off. */
+    padding: 0.08em 0.08em 0.06em;
+    margin: -0.08em -0.08em -0.06em;
   }
 
   .lines .line > span {
