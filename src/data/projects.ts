@@ -34,6 +34,7 @@ export interface Project {
   pitfall: string
   /** No screenshot: the card shows a text panel instead. */
   textOnly?: boolean
+  panel?: { title: string; rows: { k: string; v: string }[] }
   /** Optional real screenshots (first one doubles as the card cover). */
   shots?: string[]
   shotsCaption?: string
@@ -111,6 +112,21 @@ export const projects: Project[] = [
       { value: '7', label: '个版本' },
       { value: '30+', label: '个功能模块' },
     ],
+    panel: {
+      title: '三十个模块，一个管一件事',
+      rows: [
+        { k: 'memory', v: '短期对话与人格状态' },
+        { k: 'vector_store', v: '本地向量检索，语义召回' },
+        { k: 'triple_memory', v: '五元组结构化事实，主体·关系·客体·时间·来源' },
+        { k: 'intent', v: '闲聊 / 回忆 / 情感 / 搜索四路分流' },
+        { k: 'tool_loop', v: '两轮工具调用迭代，自主决定何时检索' },
+        { k: 'affection', v: '好感度四阶段与羁绊' },
+        { k: 'mood', v: '心情系统，独立衰减' },
+        { k: 'proactive', v: '主动消息与开口时机判断' },
+        { k: 'offline_alert', v: '掉线检测、重连与心跳' },
+        { k: 'cards', v: '状态卡片渲染成图发回群里' },
+      ],
+    },
     repoNote:
       '这个项目已经停更：QQ 侧的协议和风控一直在变，bot 反复被平台踢下线，维护精力主要花在对抗平台而不是做功能。同样的记忆系统搬到桌面端就不用再受这些限制，所以重心转到了第一个项目。代码和 195 项测试都还在仓库里。',
     body: [
@@ -166,6 +182,16 @@ export const projects: Project[] = [
       { value: '0', label: '次额外落库' },
       { value: '2', label: '端（host / client）' },
     ],
+    panel: {
+      title: '一条记录，从日志流到面板',
+      rows: [
+        { k: '① 输入', v: 'session log 里的 skill 调用，以及用户 /name 的显式调用' },
+        { k: '② 折叠', v: 'skillUsage 投影，纯函数，重放多少次结果都一样' },
+        { k: '③ 传输', v: 'host 把投影值折进 list rows，不新开表、不落库' },
+        { k: '④ 渲染', v: 'client 用 useSessions 读，画在 sidebar.footer.action' },
+        { k: '⑤ 启用', v: '勾选技能后构造一条 /name 提示，让 host 注入全文' },
+      ],
+    },
     repoNote:
       '这个插件停在 v0.2.0：它要解决的问题后来官方有了更好的方案，所以不再单独维护。留下来的是当初那个判断，用 session projection 折出使用记录，而不是另存一张表。',
     body: [

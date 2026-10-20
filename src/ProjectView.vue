@@ -76,16 +76,21 @@
           </div>
         </div>
         <div v-if="!project.shots" class="pv-shot-foot">
-          <p class="pv-shot-t">
-            {{ project.textOnly ? '这个项目没有截图' : '界面截图待补' }}
-          </p>
-          <p class="pv-shot-d">
-            {{
-              project.textOnly
-                ? '它不是重点展示的项目，所以不单独配图。上面这几个数字是它全部的量化结果，剩下的都在下面的文字里。'
-                : `这个位置将来放 ${project.name} 的真实截图。现在先把它的真实数字放在上面，不拿别人的图充样子。`
-            }}
-          </p>
+          <template v-if="project.panel">
+            <p class="pv-shot-t">{{ project.panel.title }}</p>
+            <dl class="pv-panel">
+              <div v-for="r in project.panel.rows" :key="r.k" class="pv-panel-row">
+                <dt class="pv-panel-k">{{ r.k }}</dt>
+                <dd class="pv-panel-v">{{ r.v }}</dd>
+              </div>
+            </dl>
+          </template>
+          <template v-else>
+            <p class="pv-shot-t">界面截图待补</p>
+            <p class="pv-shot-d">
+              {{ `这个位置将来放 ${project.name} 的真实截图。现在先把它的真实数字放在上面，不拿别人的图充样子。` }}
+            </p>
+          </template>
           <p v-if="project.repoNote" class="pv-shot-v">{{ project.repoNote }}</p>
         </div>
       </div>
@@ -336,6 +341,48 @@ onMounted(() => {
   line-height: 1.6;
   color: var(--muted);
   max-width: 62ch;
+}
+
+.pv-panel {
+  display: grid;
+  gap: 0;
+  margin: 1.35rem 0 0;
+  max-width: 72ch;
+}
+
+.pv-panel-row {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 12rem) 1fr;
+  gap: clamp(0.85rem, 2vw, 1.6rem);
+  align-items: baseline;
+  padding: 0.62rem 0.85rem;
+}
+
+.pv-panel-row:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.pv-panel-k {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #f07486;
+  letter-spacing: 0.01em;
+}
+
+.pv-panel-v {
+  margin: 0;
+  font-size: var(--step-small);
+  line-height: 1.5;
+  color: var(--on-deep-muted);
+}
+
+@media (max-width: 620px) {
+  .pv-panel-row {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
 }
 
 .pv-shots {
