@@ -68,7 +68,7 @@
         </figcaption>
       </figure>
 
-      <div class="pv-shot" data-ui data-reveal>
+      <div class="pv-shot" :class="{ 'pv-shot--slim': project.shots }" data-ui data-reveal>
         <div class="pv-metrics">
           <div v-for="m in project.metrics" :key="m.label" class="pv-metric">
             <span class="pv-metric-v nums">{{ m.value }}</span>
@@ -358,6 +358,11 @@ onMounted(() => {
   line-height: 1.6;
   color: var(--muted);
   max-width: 62ch;
+}
+
+.pv-shot--slim {
+  min-height: 0;
+  justify-content: flex-start;
 }
 
 .pv-shot {
