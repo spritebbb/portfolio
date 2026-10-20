@@ -9,7 +9,7 @@
       <ul class="cards">
         <li v-for="p in projects" :key="p.slug" class="card" data-reveal>
           <a class="card-link" :href="`./${p.slug}/`">
-            <div class="card-shot" data-ui>
+            <div class="card-shot" :class="{ 'card-shot--nums': p.textOnly }" data-ui>
               <img
                 v-if="p.poster || p.shots"
                 class="card-shot-img"
@@ -19,7 +19,6 @@
                 decoding="async"
               />
               <template v-else-if="p.textOnly">
-                <span class="card-shot-name">{{ p.name }}</span>
                 <span class="card-shot-nums">
                   <span v-for="m in p.metrics.slice(0, 3)" :key="m.label">
                     <b>{{ m.value }}</b>{{ m.label }}
@@ -101,19 +100,34 @@ import { projects } from '../data/projects'
   color: var(--ink);
 }
 
+.card-shot--nums {
+  align-items: center;
+  justify-content: center;
+}
+
 .card-shot-nums {
   display: flex;
-  gap: 1.4rem;
+  gap: clamp(1.1rem, 3vw, 2.6rem);
+  width: 100%;
+  justify-content: center;
   font-size: var(--step-small);
+  line-height: 1.35;
   color: var(--muted);
+  text-align: center;
+}
+
+.card-shot-nums > span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .card-shot-nums b {
   display: block;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.6rem;
-  line-height: 1.1;
+  font-size: clamp(1.9rem, 3.8vw, 2.9rem);
+  line-height: 1;
   color: var(--accent);
 }
 
