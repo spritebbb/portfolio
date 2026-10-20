@@ -1,3 +1,6 @@
+import demoVideo from '../assets/media/jd-pipeline-demo.mp4'
+import demoPoster from '../assets/media/jd-pipeline-poster.jpg'
+
 export interface Metric {
   value: string
   label: string
@@ -23,6 +26,9 @@ export interface Project {
   metrics: Metric[]
   body: Block[]
   pitfall: string
+  /** Optional demo video and its poster frame. */
+  video?: string
+  poster?: string
   /** Optional line about the repo's current state (e.g. mid-rewrite). */
   repoNote?: string
 }
@@ -218,6 +224,8 @@ export const projects: Project[] = [
     repo: 'https://github.com/spritebbb/jd-pipeline',
     tableResult: '企业后台生成与交付',
     tableNumber: '30 个脚本 · 五道验收门',
+    video: demoVideo,
+    poster: demoPoster,
     stack: ['Java 21', 'Spring Boot 3.5', 'MyBatis-Plus', 'MySQL', 'Vue 3', 'Element Plus'],
     metrics: [
       { value: '30', label: '个产线脚本' },

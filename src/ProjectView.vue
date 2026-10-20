@@ -37,6 +37,22 @@
         <span class="pv-actions-note">仓库公开，提交历史和测试都在里面</span>
       </p>
 
+      <figure v-if="project.video" class="pv-reel" data-reveal>
+        <video
+          class="pv-reel-v"
+          :src="project.video"
+          :poster="project.poster"
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        ></video>
+        <figcaption class="pv-reel-c">
+          这段是产线生成的那套系统跑起来的实拍。
+        </figcaption>
+      </figure>
+
       <div class="pv-shot" data-ui data-reveal>
         <div class="pv-metrics">
           <div v-for="m in project.metrics" :key="m.label" class="pv-metric">
@@ -279,6 +295,26 @@ onMounted(() => {
 .pv-metric-l {
   font-size: 1rem;
   color: var(--muted);
+}
+
+.pv-reel {
+  margin: clamp(2.5rem, 6vh, 4rem) 0 0;
+}
+
+.pv-reel-v {
+  width: 100%;
+  max-width: 900px;
+  max-height: min(64vh, 560px);
+  display: block;
+  background: var(--deep);
+}
+
+.pv-reel-c {
+  margin-top: 0.9rem;
+  font-size: var(--step-small);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 62ch;
 }
 
 .pv-shot {

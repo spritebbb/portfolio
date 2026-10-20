@@ -10,8 +10,18 @@
         <li v-for="p in projects" :key="p.slug" class="card" data-reveal>
           <a class="card-link" :href="`./${p.slug}/`">
             <div class="card-shot" data-ui>
-              <span class="card-shot-name">{{ p.name }}</span>
-              <span class="card-shot-note">界面截图待补</span>
+              <img
+                v-if="p.poster"
+                class="card-shot-img"
+                :src="p.poster"
+                :alt="`${p.name} 的界面截图`"
+                loading="eager"
+                decoding="async"
+              />
+              <template v-else>
+                <span class="card-shot-name">{{ p.name }}</span>
+                <span class="card-shot-note">界面截图待补</span>
+              </template>
             </div>
             <div class="card-body">
               <p class="card-name">{{ p.name }}</p>
@@ -81,6 +91,14 @@ import { projects } from '../data/projects'
   justify-content: space-between;
   padding: clamp(1rem, 2vw, 1.6rem);
   color: var(--ink);
+}
+
+.card-shot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+  display: block;
 }
 
 .card-shot-name {
