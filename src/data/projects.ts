@@ -36,6 +36,7 @@ export interface Project {
   year: string
   repo: string
   tableResult: string
+  tableShape: string
   tableNumber: string
   stack: string[]
   metrics: Metric[]
@@ -63,6 +64,7 @@ export const projects: Project[] = [
     period: '2026.09',
     year: '2026',
     repo: 'https://github.com/spritebbb/TZtuzhanAssistant',
+    tableShape: '桌面',
     tableResult: '长期记忆与人格系统',
     tableNumber: '432 提交 · 193 项测试',
     poster: tuzhanMain,
@@ -112,6 +114,7 @@ export const projects: Project[] = [
     period: '2026.09',
     year: '2026',
     repo: 'https://github.com/spritebbb/jd-pipeline',
+    tableShape: '产线',
     tableResult: '企业后台生成与交付',
     tableNumber: '30 个脚本 · 五道验收门',
     video: demoVideo,
@@ -169,6 +172,7 @@ export const projects: Project[] = [
     period: '2026.10',
     year: '2026',
     repo: 'https://github.com/spritebbb/Cstudy',
+    tableShape: '工具',
     tableResult: '视频转题库',
     tableNumber: '64 个知识点 · 7 题/节',
     poster: cstudyGraph,
@@ -215,6 +219,7 @@ export const projects: Project[] = [
     period: '2026.09',
     year: '2026',
     repo: 'https://github.com/spritebbb/dsh-skill-usage',
+    tableShape: '插件',
     tableResult: 'session projection',
     tableNumber: '3 个版本 · 零额外落库',
     textOnly: true,
@@ -268,6 +273,7 @@ export const projects: Project[] = [
     period: '2026.08',
     year: '2026',
     repo: 'https://github.com/spritebbb/TZtuzhan',
+    tableShape: '群聊',
     tableResult: '结构化事实记忆',
     tableNumber: '140 提交 · 195 项测试',
     textOnly: true,

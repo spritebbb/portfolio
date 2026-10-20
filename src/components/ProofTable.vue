@@ -17,35 +17,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="proof-row">
-            <td class="proof-shape">桌面</td>
-            <td class="proof-name">{{ p0.name }}</td>
-            <td class="proof-what">{{ p0.tableResult }}</td>
-            <td class="proof-num nums">{{ p0.tableNumber }}</td>
-          </tr>
-          <tr class="proof-row">
-            <td class="proof-shape">群聊</td>
-            <td class="proof-name">{{ p1.name }}</td>
-            <td class="proof-what">{{ p1.tableResult }}</td>
-            <td class="proof-num nums">{{ p1.tableNumber }}</td>
-          </tr>
-          <tr class="proof-row">
-            <td class="proof-shape">插件</td>
-            <td class="proof-name">{{ p2.name }}</td>
-            <td class="proof-what">{{ p2.tableResult }}</td>
-            <td class="proof-num nums">{{ p2.tableNumber }}</td>
-          </tr>
-          <tr class="proof-row">
-            <td class="proof-shape">工具</td>
-            <td class="proof-name">{{ p3.name }}</td>
-            <td class="proof-what">{{ p3.tableResult }}</td>
-            <td class="proof-num nums">{{ p3.tableNumber }}</td>
-          </tr>
-          <tr class="proof-row">
-            <td class="proof-shape">产线</td>
-            <td class="proof-name">{{ p4.name }}</td>
-            <td class="proof-what">{{ p4.tableResult }}</td>
-            <td class="proof-num nums">{{ p4.tableNumber }}</td>
+          <tr v-for="p in projects" :key="p.slug" class="proof-row">
+            <td class="proof-shape">{{ p.tableShape }}</td>
+            <td class="proof-name">{{ p.name }}</td>
+            <td class="proof-what">{{ p.tableResult }}</td>
+            <td class="proof-num nums">{{ p.tableNumber }}</td>
           </tr>
         </tbody>
       </table>
@@ -55,14 +31,6 @@
 
 <script setup lang="ts">
 import { projects } from '../data/projects'
-
-const [p0, p1, p2, p3, p4] = projects as [
-  (typeof projects)[number],
-  (typeof projects)[number],
-  (typeof projects)[number],
-  (typeof projects)[number],
-  (typeof projects)[number],
-]
 </script>
 
 <style scoped>
