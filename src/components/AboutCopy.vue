@@ -3,17 +3,19 @@
     <div class="wrap">
       <p class="about-copy" data-reveal>
         <span class="about-ink">我是黄泽圣</span>，湖北襄阳人，襄阳职业技术大学人工智能技术应用，2027
-        年毕业。简历上写的是 Python 后端和 AI 应用开发，实际上我做过的事更窄一点：全都在琢磨
-        AI 怎么记住一个人。 四个月里写了<span class="hl hl-a">四个项目</span>。两个是同一个「菟菚」的两种形态，一个装在桌面上，一个待在
+        年毕业。简历上写的是 Python 后端和 AI 应用开发，实际上做过的东西比简历上的宽一些：<span
+          class="hl hl-a">五个项目</span
+        >，没有一个是我能熟练之后再做的，都是边查边写。两个是同一个「菟菚」的两种形态，一个装在桌面上，一个待在
         QQ 群里；它们共用一套想法——记忆要有<span class="hl hl-b">来源</span>、有<span
           class="hl hl-b">置信度</span
         >、能被人<span class="hl hl-c">纠正</span>，也会随时间<span class="hl hl-c">变淡</span>。第三个是给
-        DSH 写的小插件，把每次技能调用折成一份可读的记录。第四个把 B 站上的 C 语言课变成会出题的私教。
-        <span class="about-ink">我不太相信「AI 有记忆」这种说法</span>。我信的是：一句话是谁说的、什么时候说的、有多确定、错了能不能改。这四个项目就是在把这件事一条条落到<span
+        DSH 写的小插件，把每次技能调用折成一份可读的记录。第四个把 B 站上的 C 语言课变成会出题的私教。第五个最不像我做的：
+        一条 Java 加 Vue 的企业后台产线，换四个参数就能产出一套能交付给客户的后台系统。
+        <span class="about-ink">我不太相信「AI 有记忆」这种说法</span>。我信的是：一句话是谁说的、什么时候说的、有多确定、错了能不能改。这些项目就是在把这件事一条条落到<span
           class="hl hl-a">数据库</span
         >里。
         <a class="about-last" href="#contact"
-          ><span class="hl hl-a">如果你也在跟「记忆」这件事较劲，下面能找到我。</span></a
+          ><span class="hl hl-a">如果你也在做类似的东西，下面能找到我。</span></a
         >
       </p>
     </div>

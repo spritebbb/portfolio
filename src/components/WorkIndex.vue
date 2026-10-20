@@ -2,7 +2,7 @@
   <section id="work" class="work section">
     <div class="wrap">
       <nav class="work-para" aria-label="项目列表">
-        <span class="work-open">四个项目：</span
+        <span class="work-open">五个项目：</span
         ><template v-for="(p, i) in projects" :key="p.slug"
           ><a class="work-name" :href="`./${p.slug}/`" data-reveal>{{ p.name }}<span
               v-if="i < projects.length - 1"
@@ -14,7 +14,7 @@
       </nav>
 
       <p class="small work-meta">
-        2026.08 – 2026.10 · 四个仓库都在 GitHub · 388 项自动化测试
+        五个仓库都在 GitHub · 388 项自动化测试 · 五道真机验收门
       </p>
     </div>
   </section>

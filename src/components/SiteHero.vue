@@ -12,24 +12,24 @@
 
     <div class="hero-body">
       <h1 class="display hero-title lines">
-        <span class="line"><span>给 AI 一副记性</span></span>
-        <span class="line"><span>让它记得住人</span></span>
+        <span class="line"><span>黄泽圣的</span></span>
+        <span class="line"><span>个人技术集</span></span>
       </h1>
 
       <p class="hero-sub" data-reveal>
-        四个项目，同一件事：<br class="m-only" />让 AI 记得住一个人，<br />并且记得对。
+        全部独立开发，代码都在 GitHub 上。<br />两个 AI 伙伴、一个学习工具、<br />一个编辑器插件、一条企业后台产线。
       </p>
 
       <div class="hero-actions" data-reveal>
         <a class="button" href="#work">
-          看这四个项目
+          看这五个项目
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
         <a
           class="link-plain hero-alt"
           href="https://github.com/spritebbb"
           target="_blank"
-          rel="noopener noreferrer">四个仓库都在 GitHub</a
+          rel="noopener noreferrer">全部仓库在 GitHub</a
         >
       </div>
     </div>
@@ -121,7 +121,7 @@
   font-size: var(--step-body);
   line-height: 1.7;
   color: var(--muted);
-  max-width: 34ch;
+  max-width: 46ch;
 }
 
 .hero-actions {

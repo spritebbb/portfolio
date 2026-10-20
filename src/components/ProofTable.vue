@@ -7,7 +7,7 @@
       </h2>
 
       <table class="proof-table" data-reveal>
-        <caption class="sr-only">四个项目的时间、形态、内容与量化结果</caption>
+        <caption class="sr-only">五个项目的时间、形态、内容与量化结果</caption>
         <thead class="sr-only">
           <tr>
             <th scope="col">形态</th>
@@ -41,6 +41,12 @@
             <td class="proof-what">{{ p3.tableResult }}</td>
             <td class="proof-num nums">{{ p3.tableNumber }}</td>
           </tr>
+          <tr class="proof-row">
+            <td class="proof-shape">产线</td>
+            <td class="proof-name">{{ p4.name }}</td>
+            <td class="proof-what">{{ p4.tableResult }}</td>
+            <td class="proof-num nums">{{ p4.tableNumber }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -50,7 +56,8 @@
 <script setup lang="ts">
 import { projects } from '../data/projects'
 
-const [p0, p1, p2, p3] = projects as [
+const [p0, p1, p2, p3, p4] = projects as [
+  (typeof projects)[number],
   (typeof projects)[number],
   (typeof projects)[number],
   (typeof projects)[number],

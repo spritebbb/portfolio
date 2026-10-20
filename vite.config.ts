@@ -23,6 +23,7 @@ export default defineConfig({
         'tuzhan-bot': resolve(root, 'tuzhan-bot/index.html'),
         'dsh-skill-usage': resolve(root, 'dsh-skill-usage/index.html'),
         cstudy: resolve(root, 'cstudy/index.html'),
+        'jd-pipeline': resolve(root, 'jd-pipeline/index.html'),
       },
     },
   },
