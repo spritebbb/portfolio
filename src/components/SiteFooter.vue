@@ -36,8 +36,8 @@
       <div class="foot-col">
         <p class="foot-key">说明</p>
         <ul>
-          <li>页面照片来自 Wikimedia Commons，为公共领域或 CC 授权作品，与项目本身无关。</li>
-          <li>四个项目的截图还没放上来，先用结构化的数字占位。</li>
+          <li>页面图片均为项目自身的界面截图与架构图，未使用外部素材。</li>
+          <li>五个项目的代码都在 GitHub 上公开，可从各详情页的「看源码」进入。</li>
         </ul>
       </div>
     </div>
